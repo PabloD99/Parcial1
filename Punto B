@@ -1,0 +1,16 @@
+# Crear una lista de diccionarios con tres diccionarios, donde cada diccionario registre los valores para curso, inscritos y aprobados
+lista_diccionarios = [
+    {"curso": "Matemáticas", "inscritos": 30, "aprobados": 25},
+    {"curso": "Física", "inscritos": 25, "aprobados": 20},
+    {"curso": "Química", "inscritos": 20, "aprobados": 15}
+]
+
+# Imprimir la cantidad de inscritos en el tercer registro
+print(f"La cantidad de inscritos en el tercer registro es: {lista_diccionarios[2]['inscritos']}")
+
+# Imprimir la cantidad de aprobados en el último registro
+print(f"La cantidad de aprobados en el último registro es: {lista_diccionarios[-1]['aprobados']}")
+
+# Calcular e imprimir el porcentaje de aprobados en el segundo registro
+porcentaje_aprobados_segundo = (lista_diccionarios[1]['aprobados'] / lista_diccionarios[1]['inscritos']) * 100
+print(f"El porcentaje de aprobados en el segundo registro es: {porcentaje_aprobados_segundo:.2f}%")
