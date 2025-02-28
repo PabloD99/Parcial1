@@ -1,0 +1,25 @@
+import pandas as pd
+
+# Cargar el archivo nombres.csv
+nombres_df = pd.read_csv('nombres.csv')
+
+# a. ¿Hay mujeres llamadas Jules, Nery?
+mujeres_jules_nery = nombres_df[(nombres_df['Nombre'].isin(['Jules', 'Nery'])) & (nombres_df['Genero'] == 'F')]
+print("¿Hay mujeres llamadas Jules o Nery?:", not mujeres_jules_nery.empty)
+
+# b. ¿Cuál es la cantidad de mujeres llamadas Nery en el estado de CA y NJ nacidas después de 1950?
+mujeres_nery_ca_nj = nombres_df[(nombres_df['Nombre'] == 'Nery') & (nombres_df['Genero'] == 'F') & 
+                                (nombres_df['Estado'].isin(['CA', 'NJ'])) & (nombres_df['Año'] > 1950)]
+cantidad_mujeres_nery_ca_nj = mujeres_nery_ca_nj['Cantidad'].sum()
+print("Cantidad de mujeres llamadas Nery en CA y NJ nacidas después de 1950:", cantidad_mujeres_nery_ca_nj)
+
+# c. ¿Cuál es la cantidad promedio de hombres llamados Mary nacidos después de 1989?
+hombres_mary_post_1989 = nombres_df[(nombres_df['Nombre'] == 'Mary') & (nombres_df['Genero'] == 'M') & 
+                                    (nombres_df['Año'] > 1989)]
+promedio_hombres_mary_post_1989 = hombres_mary_post_1989['Cantidad'].mean()
+print("Cantidad promedio de hombres llamados Mary nacidos después de 1989:", promedio_hombres_mary_post_1989)
+
+# d. ¿Cuáles son los tres estados donde hay más mujeres llamadas Nery y Alex?
+mujeres_nery_alex = nombres_df[(nombres_df['Nombre'].isin(['Nery', 'Alex'])) & (nombres_df['Genero'] == 'F')]
+estados_top3_nery_alex = mujeres_nery_alex.groupby('Estado')['Cantidad'].sum().nlargest(3)
+print("Los tres estados con más mujeres llamadas Nery y Alex son:\n", estados_top3_nery_alex)
