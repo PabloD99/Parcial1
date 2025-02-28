@@ -1,0 +1,22 @@
+# Crear una lista de listas llamada nueva_lista que contenga 5 registros de 3 registros cada uno
+nueva_lista = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [10, 11, 12],
+    [13, 14, 15]
+]
+
+# a. Imprimir el cuarto valor del tercer registro
+# Nota: Los índices en Python empiezan desde 0, por lo que el tercer registro es el índice 2 y el cuarto valor es el índice 3
+try:
+    print(f"El cuarto valor del tercer registro es: {nueva_lista[2][3]}")
+except IndexError:
+    print("El tercer registro no tiene un cuarto valor.")
+
+# b. Imprimir el tercer valor del segundo registro
+# Nota: El segundo registro es el índice 1 y el tercer valor es el índice 2
+try:
+    print(f"El tercer valor del segundo registro es: {nueva_lista[1][2]}")
+except IndexError:
+    print("El segundo registro no tiene un tercer valor.")
